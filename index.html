@@ -1,449 +1,370 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script> 
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		font-weight:300;
+		font-size:18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+	
+	h1 {
+		font-size:32px;
+		font-weight:300;
+	}
+	
+	td {
+    	width: 20%; /* Equal width for 5 columns, adjust as needed */
+    	text-align: center; /* Centers content within each cell */
+	}
+
+	.demotable {
+    	width: 100%; /* Full width of the parent */
+    	margin: 0 auto; /* Centers the table */
+	}
+
+	audio {
+    	width: 100%; /* Adjust the width as needed */
+    	max-width: 200px; /* Set a maximum width */
+		margin: 5px auto;
+		display: block;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;		
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px ;
+		-moz-border-radius: 10px ;
+		-webkit-border-radius: 10px ;
+	}
+	
+	a:link,a:visited
+	{
+		color: #1367a7;
+		text-decoration: none;
+	}
+	a:hover {
+		color: #208799;
+	}
+	
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+	
+	.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+		15px 15px 0 0px #fff, /* The fourth layer */
+		15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+		20px 20px 0 0px #fff, /* The fifth layer */
+		20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+		25px 25px 0 0px #fff, /* The fifth layer */
+		25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35); /* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
 
 
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>milina</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-      <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-   </head>
-   <!-- body -->
-   <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="images/loading.gif" alt="#"/></div>
-      </div>
-      <!-- end loader -->
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="header">
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
-                     <div class="full">
-                        <div class="center-desk">
-                           <div class="logo">
-                              <a href="index.html"><img src="images/logo.png" alt="#" /></a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-7 col-lg-7 col-md-9 col-sm-9">
-                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarsExample04">
-                           <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                 <a class="nav-link" href="index.html">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="about.html">About</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="we-do.html">What we do</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="pricing.html">Pricing</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="contact.html">Contact Us</a>
-                              </li>
-                           </ul>
-                        </div>
-                     </nav>
-                  </div>
-                  <div class="col-md-2">
-                     <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </header>
-      <!-- end header inner -->
-      <!-- end header -->
-      <!-- banner -->
-      <section class="banner_main">
-         <div id="myCarousel" class="carousel slide banner1" data-ride="carousel">
-            <ol class="carousel-indicators">
-               <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-               <li data-target="#myCarousel" data-slide-to="1"></li>
-               <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container-fluid">
-                     <div class="carousel-caption relative">
-                        <div class="row d_flex">
-                           <div class="col-md-6">
-                              <img class="bann_img" src="images/banner_ing.jpg" alt="#"/>
-                           </div>
-                           <div class="col-md-6">
-                              <span>01/03</span>
-                              <h1>Milina nail Salon Creating Beauty</h1>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo</p>
-                              <a class="get_btn" href="Javascript:void(0)" role="button">Get Appoinment</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container-fluid">
-                     <div class="carousel-caption relative">
-                        <div class="row d_flex">
-                           <div class="col-md-6">
-                              <img class="bann_img" src="images/banner_ing.jpg" alt="#"/>
-                           </div>
-                           <div class="col-md-6">
-                              <span>02/03</span>
-                              <h1>Milina nail Salon Creating Beauty</h1>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo</p>
-                              <a class="get_btn" href="Javascript:void(0)" role="button">Get Appoinment</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container-fluid">
-                     <div class="carousel-caption relative">
-                        <div class="row d_flex">
-                           <div class="col-md-6">
-                              <img class="bann_img" src="images/banner_ing.jpg" alt="#"/>
-                           </div>
-                           <div class="col-md-6">
-                              <span>03/03</span>
-                              <h1>Milina nail Salon Creating Beauty</h1>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempo</p>
-                              <a class="get_btn" href="Javascript:void(0)" role="button">Get Appoinment</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-               <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-               <span class="sr-only">Previous</span>
-               </a>
-               <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-               <span class="sr-only">Next</span>
-               </a>
-            </div>
-         </div>
-      </section>
-      <!-- end banner -->
-      <!-- what we do  -->
-      <div class="we_do slin">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>What We Do </h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-10 offset-lg-1 col-md-12">
-                  <div class="row">
-                     <div class="col-md-3 col-sm-6">
-                        <div class="we_box">
-                           <i><img src="images/weicon1.png" alt="#"/></i>
-                           <h3>Nail Art</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur </p>
-                        </div>
-                     </div>
-                     <div class="col-md-3 col-sm-6">
-                        <div class="we_box">
-                           <i><img src="images/weicon2.png" alt="#"/></i>
-                           <h3>Manicure</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur </p>
-                        </div>
-                     </div>
-                     <div class="col-md-3 col-sm-6">
-                        <div class="we_box">
-                           <i><img src="images/weicon3.png" alt="#"/></i>
-                           <h3>Pedicure</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur </p>
-                        </div>
-                     </div>
-                     <div class="col-md-3 col-sm-6">
-                        <div class="we_box">
-                           <i><img src="images/weicon4.png" alt="#"/></i>
-                           <h3>Paraffin wax</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end what we do  -->
-      <!-- about -->
-      <div class="about slin2">
-         <div class="container">
-            <div class="row d_flex">
-               <div class="col-md-6">
-                  <div class="titlepage">
-                     <h2>About Us</h2>
-                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-                     <a class="read_more" href="Javascript:void(0)"> Read More</a>
-                  </div>
-               </div>
-               <div class="col-md-6">
-                  <div class="about_img">
-                     <figure><img src="images/about.png" alt="#"/></figure>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end about -->
-      <!-- our pricing -->
-      <div  class="pricing slin">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Our Pricing</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-4">
-                  <div class="pricing_box">
-                     <div class="pricing_box_ti">
-                        <h3> <span>$</span>20<strong>/one Day</strong></h3>
-                     </div>
-                     <div class="our_pricing">
-                        <span>Regular</span>
-                        <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna</p>
-                     </div>
-                  </div>
-                  <a class="read_more mar_top" href="Javascript:void(0)"> Book Now</a>
-               </div>
-               <div class="col-md-4">
-                  <div class="pricing_box">
-                     <div class="pricing_box_ti">
-                        <h3> <span>$</span>30<strong>/one Day</strong></h3>
-                     </div>
-                     <div class="our_pricing">
-                        <span>Standard</span>
-                        <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna</p>
-                     </div>
-                  </div>
-                  <a class="read_more mar_top" href="Javascript:void(0)"> Book Now</a>
-               </div>
-               <div class="col-md-4">
-                  <div class="pricing_box">
-                     <div class="pricing_box_ti">
-                        <h3> <span>$</span>40<strong>/one Day</strong></h3>
-                     </div>
-                     <div class="our_pricing">
-                        <span>Premium</span>
-                        <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna</p>
-                     </div>
-                  </div>
-                  <a class="read_more mar_top" href="Javascript:void(0)"> Book Now</a>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end our pricing -->
-      <!-- experts -->
-      <div  class="experts slin2">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Meet Our Experts</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-lg-8 offset-lg-2 col-md-12">
-                  <div class="row">
-                     <div class="col-md-4">
-                        <div id="exp" class="experts_box">
-                           <div class="experts_img">
-                              <figure><img src="images/blog1.jpg" alt="#"/></figure>
-                           </div>
-                           <div class="meet">
-                              <h3>Jacob</h3>
-                              <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna </p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div id="exp" class="experts_box">
-                           <div class="experts_img">
-                              <figure><img src="images/blog2.jpg" alt="#"/></figure>
-                           </div>
-                           <div class="meet">
-                              <h3>Lonut</h3>
-                              <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-4">
-                        <div id="exp" class="experts_box">
-                           <div class="experts_img">
-                              <figure><img src="images/blog3.jpg" alt="#"/></figure>
-                           </div>
-                           <div class="meet">
-                              <h3>Irina</h3>
-                              <p>Lorem ipsum dolor sit amet, iscing elit, sed do magna</p>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="col-md-12">
-                        <a class="read_more mar_top exper" href="Javascript:void(0)"> Read More</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end experts -->
-      <!--  contact -->
-      <div class="contact">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="titlepage">
-                     <h2>Get In Touch</h2>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6 offset-md-3">
-                  <form id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Full Name" type="type" name="Full Name"> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Email " type="type" name="Email "> 
-                        </div>
-                        <div class="col-md-12">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
-                        </div>
-                        <div class="col-md-12">
-                           <button class="send_btn">Send</button>
-                        </div>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-md-12">
-                  <div class="map_main">
-                     <div class="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="386" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- end contact -->
-      <!--  footer -->
-      <footer>
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-12">
-                     <ul class="conta">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Passages of Lorem Ipsum available</li>
-                        <li><i class="fa fa-phone" aria-hidden="true"></i> Call : +012334567890</li>
-                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
-                     </ul>
-                  </div>
-                  <div class=" col-md-3 col-sm-6">
-                     <h3>About </h3>
-                     <p class="variat">There are many variations of passages of Lorem Ipsum available, but the majority have suffered le</p>
-                  </div>
-                  <div class=" col-md-3 col-sm-6">
-                     <h3>Nail Salon  </h3>
-                     <p class="variat" >There are many variations of passages of Lorem Ipsum available, but the majority have suffered le</p>
-                  </div>
-                  <div class="col-md-2 col-sm-6">
-                     <h3>Useful Link</h3>
-                     <ul class="link_menu">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        <li><a href="about.html"> About</a></li>
-                        <li><a href="we-do.html">What we do</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-md-4 col-sm-6">
-                     <h3>Subscribe</h3>
-                     <form class="bottom_form">
-                        <a class="right_btn" href="Javascript:void(0)"> <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <p >There are many variations of passages </p>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-10 offset-md-1">
-                        <p>© 2019 All Rights Reserved. Design by  <a href="https://html.design/"> Free Html Templates</a></p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
-   </body>
+	.layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+		0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+		5px 5px 0 0px #fff, /* The second layer */
+		5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+		10px 10px 0 0px #fff, /* The third layer */
+		10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+	
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	hr
+	{
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+<head>
+	<title>Versatile Voice Dataset</title>
+	<meta property="og:image" content="Path to my teaser.png"/> <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+	<meta property="og:title" content="Speech After Gender: A Trans-Feminine Perspective on Next Steps for Speech Science and Technology" />
+	<meta property="og:description" content="Presents a new dataset demonstrating speaker flexibility." />
+
+	<!-- Get from Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src=""></script> 
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-75863369-6');
+	</script>
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:36px">Speech After Gender: A Trans-Feminine Perspective on Next Steps for Speech Science and Technology</span>
+		
+	</center>
+
+	<!-- <center>
+		<table align=center width=850px>
+			<tr>
+				<td width=260px>
+					<center>
+						<img class="round" style="width:500px" src="./resources/model_figure.png"/>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center> -->
+
+	<hr>
+
+	<table align=center width=850px>
+		<center><h1>Abstract</h1></center>
+		<tr>
+			<td>
+				As experts in voice modification, trans-feminine gender-affirming voice teachers have unique perspectives on voice that confound current understandings of speaker identity. To demonstrate this, we present the Versatile Voice Dataset (VVD), a collection of three speakers modifying their voices along gendered axes. The VVD illustrates that current approaches in speaker modeling, based on categorical notions of gender and a static understanding of vocal texture, fail to account for the flexibility of the vocal tract. Utilizing publicly-available speaker embeddings, we demonstrate that gender classification systems are highly sensitive to voice modification, and speaker verification systems fail to identify voices as coming from the same speaker as voice modification becomes more drastic. As one path towards moving beyond categorical and static notions of speaker identity, we propose modeling individual qualities of vocal texture such as pitch, resonance, and weight.
+			</td>
+		</tr>
+	</table>
+	<br>
+
+
+
+	<table class="demotable" width=850px>
+		<center><h1>Samples</h1></center>
+		<center><p>Below we provide examples from the Versatile Voice Dataset from a High Pitch, High Resonance, Low Weight configuration to a Low Pitch, Low 
+			Resonance, High Weight Configuration, with intermediate samples provided. The L1-Distance between each configuration and the High-High-Low configuration
+			is reported.
+		</p></center>
+	</table>
+
+	<table>
+		<center><h3>High Pitch, High Resonance, Low Weight (L1-Distance = 0)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/high-high-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/high-high-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/high-high-low/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/high-high-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/high-high-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/high-high-low/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>High Pitch, Medium Resonance, Low Weight (L1-Distance = 1)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/high-med-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/high-med-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/high-med-low/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/high-med-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/high-med-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/high-med-low/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>Medium Pitch, Medium Resonance, Low Weight (L1-Distance = 2)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/med-med-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/med-med-low/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/med-med-low/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/med-med-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/med-med-low/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/med-med-low/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>Medium Pitch, Medium Resonance, Medium Weight (L1-Distance = 3)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/med-med-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/med-med-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/med-med-med/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/med-med-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/med-med-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/med-med-med/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>Low Pitch, Medium Resonance, Medium Weight (L1-Distance = 4)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-med-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-med-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-med-med/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-med-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-med-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-med-med/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>Low Pitch, Low Resonance, Medium Weight (L1-Distance = 5)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-low-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-low-med/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-low-med/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-low-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-low-med/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-low-med/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+	<table>
+		<center><h3>Low Pitch, Low Resonance, High Weight (L1-Distance = 6)</h3></center>
+		<tr>
+			<th>Sentence</th>
+			<th>001</th>
+			<th>002</th>
+			<th>003</th>
+		</tr>
+		
+		<tr>
+			<td>The blue spot is on the key again.</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-low-high/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-low-high/key.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-low-high/key.wav" type="audio/wav"></audio></td>
+		</tr>
+
+		<tr>
+			<td>How hard did he hit him?</td>
+			<td><audio controls><source src="./resources/audios/vvd_files/001/low-low-high/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/002/low-low-high/hit.wav" type="audio/wav"></audio></td>
+			<td><audio controls><source src="./resources/audios/vvd_files/003/low-low-high/hit.wav" type="audio/wav"></audio></td>
+		</tr>
+	</table>
+
+
+
+	<!-- This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project; the code can be found <a href="https://github.com/richzhang/webpage-template">here</a>. -->
+<br>
+</body>
 </html>
 
